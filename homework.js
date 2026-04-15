@@ -189,14 +189,9 @@ async function getProductsWithAxios() {
   // 請實作此函式
   // 提示：axios.get() 會自動解析 JSON，不需要 .json()
   // 回傳 response.data.products
-  try {
     const url = `${BASE_URL}/api/livejs/v1/customer/${API_PATH}/products`;
     const response = await axios.get(url);
     return response.data.products;
-  } catch (error) {
-    console.error('取得產品列表失敗:', error.message);
-    return undefined;
-  }
 }
 
 /**
@@ -208,7 +203,6 @@ async function getProductsWithAxios() {
 async function addToCartWithAxios(productId, quantity) {
   // 請實作此函式
   // 提示：axios.post(url, data) 會自動設定 Content-Type
-  try {
     const url = `${BASE_URL}/api/livejs/v1/customer/${API_PATH}/carts`;
     const response = await axios.post(url, {
       data: {
@@ -217,10 +211,6 @@ async function addToCartWithAxios(productId, quantity) {
       }
     });
     return response.data;
-  } catch (error) {
-    console.error('加入購物車失敗:', error.message);
-    return undefined;
-  }
 }
 
 /**
